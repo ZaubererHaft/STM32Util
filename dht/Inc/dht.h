@@ -42,7 +42,7 @@ typedef struct DHT_ {
 } DHT;
 
 typedef struct DHTInitParams_ {
-    GPIO_Function function;
+    GPIO_Function gpio_function;
     GPIO_Function wait_function;
     Callback_Function callback;
     DHTType type;

@@ -63,6 +63,10 @@ W25Q_Status W25Q_Init(W25Q *flash, const W25QInitParams *params) {
     flash->block_large_size_byte = flash->pages_per_blocks_large * flash->sector_size_byte;
     flash->blocks_large = flash->flash_size_bytes / flash->block_large_size_byte;
 
+    flash->gpio_function = params->gpio_function;
+    flash->spi_read = params->spi_read;
+    flash->spi_write = params->spi_write;
+
     // to simplify the driver, don't support larger flashes (would need 32 bit addresses)
     if (flash->blocks_small >= W25Q_NUMER_OF_SMALL_BLOCKS_UNSUPPORTED) {
         return W25Q_NOT_SUPPORTED;

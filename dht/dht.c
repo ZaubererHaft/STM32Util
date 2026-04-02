@@ -18,7 +18,7 @@ void DHT_Init(DHT *dht, const DHTInitParams init_params) {
     dht->bits_received = 0;
     dht->cycles = 0;
     dht->ticks_last_active_irq = 0;
-    dht->gpio_function = init_params.function;
+    dht->gpio_function = init_params.gpio_function;
     dht->wait_function_ms = init_params.wait_function;
     dht->callback = init_params.callback;
     dht->restart_wait_time_ms = init_params.restart_wait_time_ms;

@@ -7,9 +7,9 @@ void DWT_Init() {
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 }
 
-void DWT_Delay(uint32_t sys_clock, uint32_t us) {
+void DWT_Delay(uint32_t sys_clock_mhz, uint32_t us) {
     uint32_t startTick = DWT->CYCCNT;
-    uint32_t delayTicks = us * (sys_clock / 1000000);
+    uint32_t delayTicks = us * sys_clock_mhz;
 
     while (DWT->CYCCNT - startTick < delayTicks);
 }
